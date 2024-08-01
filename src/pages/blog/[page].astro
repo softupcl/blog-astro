@@ -12,7 +12,6 @@ export const getStaticPaths = (async ({paginate}) => {
 }) satisfies GetStaticPaths;
 
 const { page } = Astro.props;
-console.log(page)
 ---
 
 <MainLayout title="Post">
@@ -24,7 +23,7 @@ console.log(page)
 
   <section class="bg-gray-900" aria-label="Entradas de blog">
     <div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
-      {page.data.map((post) => <TypeBlogPost post={post} />)}
+      <!-- {page.data.map((post) => <TypeBlogPost post={post} />)} -->
     </div>
   </section>
 
