@@ -1,0 +1,24 @@
+---
+import BlogPost from "../components/BlogPost.astro";
+import { siteConfig } from "../config/site-config";
+import MainLayout from "../layouts/MainLayout.astro";
+
+const post = await Astro.glob('./posts/*.{md, mdx}');
+
+---
+
+<MainLayout title="Blog's">
+	<section class= "bg-gray-900">
+		<div class="container px-6 py-10 mx-auto">
+			<h1 class="text-3xl font-semibold capitalize lg:text-4xl text-white">{siteConfig.title}</h1>
+	
+			<div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
+				
+				{
+					post.map((post) =><BlogPost {...post} /> )
+				}
+	
+			</div>
+		</div>
+	</section>
+</MainLayout>
